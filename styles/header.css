@@ -1,10 +1,20 @@
-.cabeçalho__menu-hamburger {
+.cabecalho__menu-hamburguer {
     width: 24px;
     height: 24px;
-    background-image: url(../img/Menu.svg);
+    background-image: url("/img/Menu.svg");
     background-repeat: no-repeat;
     background-position: center;
     display: inline-block;
+}
+
+/* condição para mostrar o menu hamburger aberto */
+.container__botao:checked ~ .container__label > .cabecalho__menu-hamburguer {
+    background-image: url(/img/MenuAberto.svg);
+}
+
+/* condição para mudar o backgorund do menu hamburger quando estiver aberto */
+.container__botao:checked ~ .container__label {
+    background: var(--azul-degrade);
 }
 
 .cabecalho {
@@ -15,8 +25,24 @@
     position: relative;
 }
 
+.opcoes {
+    margin-right: auto; /* Empurra as opções para o lado direito do logo */
+    display: flex; /* Alinha os itens na mesma linha */
+    gap: 1em; /* Espaçamento entre os itens */
+}
+
 .container__img {
-    padding: 0.5em;
+    padding: 1em;
+}
+
+.container__titulo {
+    margin-left: 1em;
+}
+
+.container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .lista-menu {
@@ -26,7 +52,7 @@
     width: 60vw;
 }
 
-/* ~ combindor CSS */
+/* ~ combinador CSS */
 .container__botao:checked ~.lista-menu {
     display: block;
 }
@@ -51,10 +77,105 @@
     text-transform: uppercase;
 }
 
-.container__botao {
+.container__botao,
+.container__texto,
+.opcoes {
     display: none;
 }
 
+/* Conteiner, que está no head escrito Alura Books, não aparece quando a tela  < 1024 */
+.container__titulo {
+    display: none;
+    margin-right: 1em;
+}
+
+.opcoes__link:hover,
+.opcoes__item:hover {
+    color: var(--laranja);
+    cursor: pointer;
+}
+
+/* layout tablet */
 @media screen and (min-width: 1024px){
-    
+    .container__titulo,
+    .container__titulo--negrito {
+        font-family: var(--fonte-secundaria);
+        font-size: 24px;
+    }
+
+    .container__titulo {
+        font-weight: 400;
+        display: block;
+    }
+
+    .container__titulo--negrito {
+        font-weight: 700;
+    }
+
+    .opcoes {
+        display: flex;
+    }
+
+    .opcoes__item {
+        padding: 0 1em;
+        text-transform: uppercase;
+    }
+
+    .opcoes__link {
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho__menu-hamburguer,
+    .container__tirar-img-coracao,
+    .opcoes__botao {
+        display: none;
+    } 
+
+    .opcoes__botao:checked ~ .lista-menu {
+        display: block;
+        width: auto;
+    }
+
+    /* condição para mudar a cor do menu categorias tablet e desktop */
+    .opcoes__botao:checked ~ .opcoes__label > .opcoes__item {
+        background: var(--azul-degrade);
+        color: var(--branco);
+    }
+
+    .opcoes__item {
+        padding: 1em 2em;
+    }
+
+    /* hover para o menu categorias */
+    .lista-menu__item:hover {
+        background: var(--azul-degrade);
+    }
+
+    .lista-menu__item:hover > .lista-menu__link {
+        -webkit-text-fill-color: var(--branco);
+        text-decoration: none;
+    }
+}
+
+/* layout desktop */
+@media screen and (min-width: 1728px) {
+    .container__link {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: var(--preto);
+    }
+
+    .cabecalho {
+        padding: 0 2em;
+    }
+
+    .container__texto {
+        display: block;
+    }
+
+    .opcoes {
+        margin-right: auto; /* ajusta a categorias favoritos e minha estante à esquerda dando uma margin auto para o lado direito*/
+    }
 }
