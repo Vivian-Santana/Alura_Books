@@ -2,6 +2,7 @@
 <p align="center"> HTML e CSS: responsividade com mobile-first. </p>
 
 <hr>
+
 ## Tecnologias
 * HTML
 * CSS
@@ -9,4 +10,7 @@
 
 ## Screenshots
 ![Screenshot Alura Books mobile](./img/Screenshots/mobile.png)
+
+<hr>
+
 ![Screenshot Alura Books Desktop](./img/Screenshots/desktop.png)
